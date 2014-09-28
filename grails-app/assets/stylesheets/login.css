@@ -1,0 +1,17 @@
+.loginForm{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	margin: 0; 
+}
+
+.loginContainer{
+	border-radius: 0.9em;
+	width: 60%;
+	min-width: 25rem 
+}
+
+#rememberMe{
+	margin-left: auto;
+}

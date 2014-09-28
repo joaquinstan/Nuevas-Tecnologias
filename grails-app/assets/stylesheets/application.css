@@ -1,0 +1,38 @@
+/*
+*= require bootstrap
+*= require login
+*= require_self
+*= require_tree .
+*/
+
+body{
+
+	background-color: orange;	
+}
+
+.navbar{
+	border-radius:0;
+}
+
+.layoutBody{
+	height: 80vh;
+}
+
+.flexContainer {	
+	display: -webkit-flex;
+	display: flex;
+}
+
+.center {
+	-webkit-flex-direction: column;
+   flex-direction: column;
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+}
+
+
+
+
+
