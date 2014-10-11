@@ -6,5 +6,9 @@
 </head>
 <body class="flexContainer center">
 
+  <g:each in="${activities}" var="activity">
+    ${activity.name}
+  </g:each>
+
 </body>
 </html>

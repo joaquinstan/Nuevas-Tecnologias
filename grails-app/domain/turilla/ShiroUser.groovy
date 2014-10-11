@@ -1,3 +1,5 @@
+package turilla
+
 class ShiroUser {
     String username
     String passwordHash

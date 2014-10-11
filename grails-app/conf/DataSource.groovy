@@ -25,7 +25,7 @@ environments {
             url = "jdbc:mysql://localhost:3306/Turilla?useUnicode=yes&characterEncoding=UTF-8"
          
             // Print Hibernate SQL to the console
-            // logSql = true
+            logSql = true
          
             // Credentials
             username = "joaquin"

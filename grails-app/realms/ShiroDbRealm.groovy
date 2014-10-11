@@ -11,7 +11,7 @@ class ShiroDbRealm {
     def shiroPermissionResolver
 
     def authenticate(authToken) {
-        log.info "Attempting to authenticate ${authToken.username} in DB realm..."
+        log.error "Attempting to authenticate ${authToken.username} in DB realm..."
         def username = authToken.username
 
         // Null username is invalid
@@ -22,12 +22,13 @@ class ShiroDbRealm {
         // Get the user with the given username. If the user is not
         // found, then they don't have an account and we throw an
         // exception.
+
         def user = ShiroUser.findByUsername(username)
         if (!user) {
             throw new UnknownAccountException("No account found for user [${username}]")
         }
 
-        log.info "Found user '${user.username}' in DB"
+        log.error "Found user '${user.username}' in DB"
 
         // Now check the user's password against the hashed value stored
         // in the database.

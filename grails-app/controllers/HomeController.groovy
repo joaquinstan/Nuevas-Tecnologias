@@ -1,6 +1,9 @@
-
+import turilla.*
 
 class HomeController{
 
-    def index() { }    
+    def index() { 
+    	Activity[] activities = Activity.getAll()
+    	[activities: activities]
+    }    
 }
