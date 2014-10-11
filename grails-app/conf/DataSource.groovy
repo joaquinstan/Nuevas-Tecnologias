@@ -22,14 +22,14 @@ environments {
          
             // Change 'localhostOrDatabaseIpAddress' and 'myDatabaseName'
             // to whatever suits your environment
-            url = "jdbc:mysql://localhost:3306/Turilla?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/Turilla?useUnicode=yes&characterEncoding=UTF-8"
          
             // Print Hibernate SQL to the console
             logSql = true
          
             // Credentials
-            username = "joaquin"
-            password = "Turilla"
+            username = "turilla"
+            password = "password"
         }
     }
     test {
