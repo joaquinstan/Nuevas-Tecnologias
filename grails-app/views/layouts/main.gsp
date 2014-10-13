@@ -22,7 +22,7 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-        <div id="wrapper" class="<g:if test="${!user}">toggled</g:if>">
+        <div id="wrapper">
             <g:if test="${user}">
                 <div id="sidebar-wrapper">
                     <ul class="sidebar-nav">
@@ -50,14 +50,16 @@
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
-
                             <div class="navbar-header">
+                            <g:if test="${user}">
+
                                 <a class="navbar-toggle" id="menu-toggle">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </a>
+                            </g:if>
                                 <a class="navbar-brand" href="#">Turilla</a>
 
 
