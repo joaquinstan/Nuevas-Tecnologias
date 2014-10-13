@@ -22,7 +22,7 @@
 			
 			<hr/>
 			
-			<div class=artistName>
+			<div class=activityDescription>
 				${activity.description}
 			</div>
 			

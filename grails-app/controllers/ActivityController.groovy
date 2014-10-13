@@ -3,7 +3,7 @@ import turilla.*
 class ActivityController {
 
 	def index = {
-		Activity activity = Activity.getAll().get(0)
+		Activity activity = Activity.get(params.id)
 		[activity: activity]		
 	}
 	

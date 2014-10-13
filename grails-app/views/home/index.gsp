@@ -21,9 +21,12 @@
                     </div>
                 </div>
 
-                <div class="artistName">
-                    ${activity.artist?.name}
-                    ${activity.artist?.lastName}
+				<div class="line flexContainer">
+                	<div class="artistName">
+	                    ${activity.artist?.name}
+                    	${activity.artist?.lastName}
+                	</div>
+						<g:link controller="activity" id="${ activity.id }" class="btn btn-info showActivityButton"> <g:message code="seeDescription" /> </g:link>
                 </div>
             </div>
         </g:each>

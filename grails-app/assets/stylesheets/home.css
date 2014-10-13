@@ -5,8 +5,13 @@
 }
 
 
-.name, .startDate, .artistName{
+.name, .startDate, .artistName, .activityDescription{
     -webkit-flex-grow: 1;
     flex-grow: 1; /* default 0 */
     padding: 1em;
+}
+
+.showActivityButton {
+	margin-right: 55px;
+	height: 37px;
 }
