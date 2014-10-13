@@ -4,7 +4,9 @@
     flex-direction: column;
 }
 
-.name, .startDate{
+
+.name, .startDate, .artistName{
     -webkit-flex-grow: 1;
     flex-grow: 1; /* default 0 */
+    padding: 1em;
 }

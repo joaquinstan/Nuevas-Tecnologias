@@ -19,3 +19,18 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+
+$(document ).ready(function(){
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $("#sidebar-wrapper").one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
+            function(e) {
+
+                $("#page-content-wrapper").toggleClass("absolute")
+
+            });
+    });
+});
+
+

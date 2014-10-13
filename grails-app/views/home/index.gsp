@@ -6,22 +6,28 @@
 </head>
 <body class="flexContainer">
 
-  <g:each in="${activities}" var="activity" class="list-group">
-    <div class="activitiesContainer list-group-item flexContainer">
-        <div class="line flexContainer">
-            <div class="name">
-                ${activity.name}
-            </div>
-            <div class="startDate">
-                ${activity.startDate}
-            </div>
-        </div>
+    <div class=".col-md-4">
 
-        <div class="artist">
-            ${activity.artist?.name}
-        </div>
     </div>
-  </g:each>
+    <div class="activitiesContainer list-group flexContainer .col-md-4">
+        <g:each in="${activities}" var="activity" >
+            <div class="list-group-item">
+                <div class="line flexContainer">
+                    <div class="name">
+                        ${activity.name}
+                    </div>
+                    <div class="startDate">
+                        <g:formatDate date="${activity.startDate}" type="datetime" style="LONG" timeStyle="SHORT"/>
+                    </div>
+                </div>
+
+                <div class="artistName">
+                    ${activity.artist?.name}
+                    ${activity.artist?.lastName}
+                </div>
+            </div>
+        </g:each>
+    </div>
 
 </body>
 </html>

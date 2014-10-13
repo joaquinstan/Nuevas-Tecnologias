@@ -2,12 +2,21 @@
 *= require bootstrap
 *= require login
 *= require home
+*= require simple-sidebar
 *= require_self
 *= require_tree .
 */
 
 body{
-	background-color: orange;	
+	background-color: orange;
+}
+.absolute{
+    position: absolute;
+}
+
+.navbar-toggle{
+    float: left;
+    margin-left: 1em;
 }
 
 .navbar{
