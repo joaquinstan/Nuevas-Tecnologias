@@ -1,8 +1,16 @@
-Nuevas-Tecnologias
+Turilla
 ==================
 
 Trabajo Practico para Nuevas Tecnologias FIUBA
 
-Instalar Grails
+Para correr el proyecto:
 
-Para configurar la base de datos esta todo en DataSource.groovy, hay que usar MySql.
+  1. Instalar Grails
+
+  2. Crear una base de datos de nombre Turilla en mysql con usuario: turilla y password: password. Darle todos los permisos.
+  
+  3. En la carpeta del proyecto, correr:
+        grails
+    una vez en el entorno grails:
+        run-app
+  4. Abrir un browser en localhost:8080/Turilla
