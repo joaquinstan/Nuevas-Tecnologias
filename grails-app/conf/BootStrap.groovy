@@ -4,15 +4,15 @@ import turilla.*
 class BootStrap {
 
     def init = { servletContext ->
-        def js = new ShiroUser(username: "joaquinstankus", passwordHash: new Sha256Hash("password").toHex())
+        def js = new User(name:"Joaquin",lastName:"Stankus",username: "joaquinstankus", passwordHash: new Sha256Hash("password").toHex())
         js.addToPermissions("*:*")
         js.save()
 
-        def fq = new ShiroUser(username: "federicoquevedo", passwordHash: new Sha256Hash("password").toHex())
+        def fq = new User(name:"Fede",lastName:"Champion", username: "federicoquevedo", passwordHash: new Sha256Hash("password").toHex())
         fq.addToPermissions("*:*")
         fq.save()
 
-        def jc = new ShiroUser(username: "jorgecollinet", passwordHash: new Sha256Hash("password").toHex())
+        def jc = new User(name:"Jorge",lastName:"Collinet",username: "jorgecollinet", passwordHash: new Sha256Hash("password").toHex())
         jc.addToPermissions("*:*")
         jc.save()
 

@@ -17,35 +17,34 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <%@ page import="org.apache.shiro.SecurityUtils" %>
+        <% user = SecurityUtils.subject.principal %>
 		<g:layoutHead/>
 	</head>
 	<body>
-        <div id="wrapper">
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <g:if test="${user}">
-                            ${user.name} ${user.lastName}
-                        </g:if>
-                        <g:else>
-                            Hi Stranger!
-                        </g:else>
-                    </li>
-                    <li>
-                        <a href="#">My Profile</a>
-                    </li>
-                    <li>
-                        <a href="#">Search Activities</a>
-                    </li>
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                        <g:link controller="auth" action="signOut">Logout</g:link>
-                    </li>
-                </ul>
-            </div>
+        <div id="wrapper" class="<g:if test="${!user}">toggled</g:if>">
+            <g:if test="${user}">
+                <div id="sidebar-wrapper">
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-brand">
+                            <g:displayName></g:displayName>
+                        </li>
+                        <li>
+                            <a href="#">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Search Activities</a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <g:link controller="auth" action="signOut">Logout</g:link>
+                        </li>
+                    </ul>
+                </div>
 
+            </g:if>
             <div id="page-content-wrapper">
                 <header>
                     <nav class="navbar navbar-default" role="navigation">
@@ -53,7 +52,7 @@
                             <!-- Brand and toggle get grouped for better mobile display -->
 
                             <div class="navbar-header">
-                                <a g class="navbar-toggle" id="menu-toggle">
+                                <a class="navbar-toggle" id="menu-toggle">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>

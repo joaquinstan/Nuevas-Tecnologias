@@ -1,14 +1,14 @@
 package turilla
 
 class User {
-	
-	String name
-	String lastName
-	Preferences preferences
-	Artist artist
+    String name
+    String lastName
+    String username
+    String passwordHash
+    
+    static hasMany = [ roles: Role, permissions: String ]
 
     static constraints = {
-    	preferences nullable: true, unique: true
-    	artist nullable: true, unique: true
+        username(nullable: false, blank: false, unique: true)
     }
 }
