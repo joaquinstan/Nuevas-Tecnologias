@@ -30,6 +30,9 @@
                             <g:displayName></g:displayName>
                         </li>
                         <li>
+                            <g:link controller="home">Home</g:link>
+                        </li>
+                        <li>
                             <a href="#">My Profile</a>
                         </li>
                         <li>

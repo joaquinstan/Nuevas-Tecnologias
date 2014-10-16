@@ -9,6 +9,8 @@ class Activity {
 	Date startDate
 	Date endDate
 
+    static hasMany = [ artists: AbstractArtist ]
+
     static constraints = {
     	establishment nullable: true
 		description nullable: true

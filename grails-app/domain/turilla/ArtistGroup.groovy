@@ -1,12 +1,14 @@
 package turilla
 
-class ArtistGroup {
-
+class ArtistGroup implements AbstractArtist{
 
 	String name
-	String lastName
 	static hasMany = [ artists: Artist, activities: Activity ]
 
     static constraints = {
+    }
+
+    public def rate(){
+
     }
 }
