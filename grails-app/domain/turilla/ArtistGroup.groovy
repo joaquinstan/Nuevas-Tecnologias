@@ -1,6 +1,6 @@
 package turilla
 
-class ArtistGroup implements AbstractArtist{
+class ArtistGroup implements IArtist{
 
 	String name
 	static hasMany = [ artists: Artist, activities: Activity ]

@@ -6,7 +6,7 @@ class User {
     String username
     String passwordHash
     
-    static hasMany = [ roles: Role, permissions: String, artists: Artist ]
+    static hasMany = [ roles: Role, permissions: String, favorites: IArtist ]
 
     static constraints = {
         username(nullable: false, blank: false, unique: true)

@@ -1,6 +1,6 @@
 package turilla
 
-public interface AbstractArtist {
+public interface IArtist {
 
    public def rate()
 
