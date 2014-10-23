@@ -23,8 +23,8 @@
 
 				<div class="line flexContainer">
                 	<div class="artistName">
-	                    ${activity.artist?.name}
-                    	${activity.artist?.lastName}
+	                    ${activity.artists[0]?.name}
+                    	${activity.artists[0]?.lastName}
                 	</div>
 						<g:link controller="activity" id="${ activity.id }" class="btn btn-info showActivityButton"> <g:message code="seeDescription" /> </g:link>
                 </div>

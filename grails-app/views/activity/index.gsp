@@ -25,12 +25,12 @@
 			<div class=activityDescription>
 				${activity.description}
 			</div>
-			
+
 			<hr/>
-			
+
 			<div class="artistName">
-			    ${activity.artist?.name}
-				${activity.artist?.lastName}
+			    ${activity.artists?.name}
+				${activity.artists?.lastName}
 			    </div>
 			</div>
     </div>

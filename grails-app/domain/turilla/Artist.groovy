@@ -1,6 +1,6 @@
 package turilla
 
-class Artist implements IArtist{
+class Artist extends IArtist{
 
 	String alias
     String name

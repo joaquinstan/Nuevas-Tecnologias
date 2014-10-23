@@ -5,6 +5,20 @@ class User {
     String lastName
     String username
     String passwordHash
+
+
+    def favArtist(IArtist artist){
+
+    }
+    def attendActivity(Activity activity){
+
+    }
+    def rateActivity(Activity activity){
+
+    }
+    def commentActivity(Activity activity){
+
+    }
     
     static hasMany = [ roles: Role, permissions: String, favorites: IArtist ]
 
