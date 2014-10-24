@@ -5,13 +5,23 @@
 }
 
 
-.name, .startDate, .artistName, .activityDescription{
+.name, .startDate, .artistName, .activityDescription, .showActivityButton{
     -webkit-flex-grow: 1;
     flex-grow: 1; /* default 0 */
     padding: 1em;
 }
 
-.showActivityButton {
-	margin-right: 55px;
-	height: 37px;
+.searchContainer{
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin: 1em;
+}
+
+.searchResults{
+
+    margin: 1em;
+    margin-top: 2em;
 }

@@ -9,7 +9,7 @@
     <div class=".col-md-4">
 
     </div>
-    <div class="activitiesContainer list-group flexContainer .col-md-4">
+    <div class="activitiesContainer list-group flexContainer center .col-md-4">
         <g:each in="${activities}" var="activity" >
             <div class="list-group-item">
                 <div class="line flexContainer">
@@ -20,13 +20,12 @@
                         <g:formatDate date="${activity.startDate}" type="datetime" style="LONG" timeStyle="SHORT"/>
                     </div>
                 </div>
-
 				<div class="line flexContainer">
                 	<div class="artistName">
 	                    ${activity.artists[0]?.name}
                     	${activity.artists[0]?.lastName}
                 	</div>
-						<g:link controller="activity" id="${ activity.id }" class="btn btn-info showActivityButton"> <g:message code="seeDescription" /> </g:link>
+						<g:link controller="activity" id="${ activity.id }" class="btn btn-info showActivityButton"><g:message code="seeDescription" /></g:link>
                 </div>
             </div>
         </g:each>

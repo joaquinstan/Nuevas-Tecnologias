@@ -9,7 +9,7 @@
     <div class=".col-md-4">
 
     </div>
-    <div class="activitiesContainer list-group flexContainer .col-md-4">
+    <div class="activitiesContainer list-group flexContainer center .col-md-4">
 		<div class="list-group-item">
 			<div class="line flexContainer">
 			    <div class="name">
@@ -31,8 +31,8 @@
 			<div class="artistName">
 			    ${activity.artists?.name}
 				${activity.artists?.lastName}
-			    </div>
 			</div>
+		</div>
     </div>
 
 </body>

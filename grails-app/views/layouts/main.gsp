@@ -36,7 +36,7 @@
                             <a href="#">My Profile</a>
                         </li>
                         <li>
-                            <a href="#">Search Activities</a>
+                            <a href="#"><g:link controller="search">Search Activities</g:link></a>
                         </li>
                         <li>
                             <a href="#"></a>
@@ -71,7 +71,7 @@
                     </nav>
                 </header>
 
-                <div class="flexContainer layoutBody center">
+                <div class="layoutBody center flexContainer">
                     <g:layoutBody/>
                 </div>
             </div>
