@@ -2,6 +2,7 @@
     margin: 1em;
     -webkit-flex-direction: column;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 
@@ -9,6 +10,7 @@
     -webkit-flex-grow: 1;
     flex-grow: 1; /* default 0 */
     padding: 1em;
+    width: 50%;
 }
 
 .searchContainer{
@@ -24,4 +26,14 @@
 
     margin: 1em;
     margin-top: 2em;
+}
+
+.search-input {
+	top: -10px;
+	margin-bottom: 20px;
+}
+
+.footer {
+	
+	heigth: 50px;
 }

@@ -9,7 +9,13 @@
     <div class=".col-md-4">
 
     </div>
-    <div class="activitiesContainer list-group flexContainer center .col-md-4">
+    <div class="activitiesContainer list-group center .col-md-4">
+    
+		<div class="input-group search-input">
+			<span class="input-group-addon"></span>
+			<input type="text" class="form-control" placeholder="${message(code: 'enterSearch')}">
+		</div>
+    
         <g:each in="${activities}" var="activity" >
             <div class="list-group-item">
                 <div class="line flexContainer">
@@ -29,6 +35,7 @@
                 </div>
             </div>
         </g:each>
+        &nbsp;
     </div>
 
 </body>
