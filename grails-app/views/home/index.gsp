@@ -13,7 +13,11 @@
     
 		<div class="input-group search-input">
 			<span class="input-group-addon"></span>
-			<input type="text" class="form-control" placeholder="${message(code: 'enterSearch')}">
+			
+			<g:form action="search">
+				<input type="text" class="form-control" placeholder="${message(code: 'ingrese actividad, artista o lugar')}">
+				<g:link controller="home" action="search" params="${message }"></g:link>
+			</g:form>
 		</div>
     
         <g:each in="${activities}" var="activity" >
