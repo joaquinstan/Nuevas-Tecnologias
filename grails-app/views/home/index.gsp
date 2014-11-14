@@ -15,8 +15,8 @@
 			<span class="input-group-addon"></span>
 			
 			<g:form action="search">
-				<input type="text" class="form-control" placeholder="${message(code: 'ingrese actividad, artista o lugar')}">
-				<g:link controller="home" action="search" params="${message }"></g:link>
+				<input name=busquedaIntroducida type="text" class="form-control" placeholder="${message(code: 'ingrese nombre de actividad, artista , lugar o descripcion')}">
+				<g:link controller="home" action="search" ></g:link>
 			</g:form>
 		</div>
     
