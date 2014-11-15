@@ -33,7 +33,28 @@
 	margin-bottom: 20px;
 }
 
-.footer {
-	
-	heigth: 50px;
+.btn-vote .up {
+	background: url('../images/sticky-vote.png') no-repeat;
+}
+
+.btn-vote .down {
+	background: url('../images/sticky-vote.png') no-repeat 0 -32px;
+}
+
+.btn-vote .up.active {
+	background: url('../images/sticky-vote.png') no-repeat -42px 0;
+}
+
+.btn-vote .down.active {
+	background: url('../images/sticky-vote.png') no-repeat -42px -32px;
+}
+
+.btn-vote a {
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	width: 44px;
+	height: 34px;
+	display: block;
+	text-indent: -999px;
 }

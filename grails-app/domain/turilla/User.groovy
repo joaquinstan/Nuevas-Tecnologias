@@ -20,7 +20,7 @@ class User {
 
     }
     
-    static hasMany = [ roles: Role, permissions: String, favorites: IArtist ]
+    static hasMany = [ roles: Role, permissions: String, favorites: IArtist, likes: ActivityLike ]
 
     static constraints = {
         username(nullable: false, blank: false, unique: true)

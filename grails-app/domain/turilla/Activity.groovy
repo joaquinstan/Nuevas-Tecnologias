@@ -8,7 +8,7 @@ class Activity {
 	Date startDate
 	Date endDate
 
-    static hasMany = [ artists: IArtist, comments: Comment ]
+    static hasMany = [ artists: IArtist, comments: Comment, likes: ActivityLike ]
 
     static belongsTo = IArtist
 

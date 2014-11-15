@@ -32,6 +32,19 @@
 			    ${activity.artists?.name}
 				${activity.artists?.lastName}
 			</div>
+			
+			<hr/>
+			
+			<div class="btn-vote">
+     				<a class="up " href="javascript:void(0);"></a>
+
+     				<a class="up active" href="javascript:void(0);"></a>
+     				
+     				<a class="down " href="javascript:void(0);"></a>
+
+     				<a class="down active" href="javascript:void(0);"></a>
+			</div>
+			
 		</div>
     </div>
 
