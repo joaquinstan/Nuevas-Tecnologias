@@ -13,15 +13,17 @@ class HomeController{
 		
 		def activities = Activity.createCriteria().listDistinct {
 			or{
-				like("name", "%${params.busquedaIntroducida}%")
+				ilike("name", "%${params.busquedaIntroducida}%")
+				
 				artists{
-					like("name", "%${params.busquedaIntroducida}%")
+					ilike("name", "%${params.busquedaIntroducida}%")
 				}
 				
 				establishment{
-					like("name","%${params.busquedaIntroducida}%")
+					ilike("name","%${params.busquedaIntroducida}%")
 				}
-				like("description", "%${params.busquedaIntroducida}%")
+				
+				ilike("description", "%${params.busquedaIntroducida}%")
 			}
 		}
 		def map = [ activities : activities ]
