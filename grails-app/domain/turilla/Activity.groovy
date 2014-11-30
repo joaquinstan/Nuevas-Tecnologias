@@ -22,9 +22,9 @@ class Activity {
 	def getUserLike(String userName) {
 		for ( like in likes ) {
 			if (like.getUser().getUsername().equals(userName))
-				return like.getLikeState();
+				return like;
 		}
 		
-		return 0;
+		return null;
 	}
 }
