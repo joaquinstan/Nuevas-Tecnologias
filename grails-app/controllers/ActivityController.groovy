@@ -28,6 +28,8 @@ class ActivityController {
 			
 			currentLike.save(flush: true)
 		}
+		
+		render 'ok'
 	}
 	
 }

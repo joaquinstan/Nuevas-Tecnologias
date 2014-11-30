@@ -27,4 +27,13 @@ class Activity {
 		
 		return null;
 	}
+	
+	def getUserLikeState(String username) {
+		ActivityLike like = getUserLike(username)
+		
+		if (like == null) 
+			return 0
+		
+		return like.getLikeState()
+	}
 }
