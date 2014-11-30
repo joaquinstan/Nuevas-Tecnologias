@@ -33,6 +33,11 @@
 	margin-bottom: 20px;
 }
 
+.btn-vote {
+	display: inline-flex;
+	
+}
+
 .btn-vote .up {
 	background: url('../images/sticky-vote.png') no-repeat;
 }
@@ -47,6 +52,10 @@
 
 .btn-vote .down.active {
 	background: url('../images/sticky-vote.png') no-repeat -42px -32px;
+}
+
+.second-btn {
+	margin-left: 20px;
 }
 
 .btn-vote a {

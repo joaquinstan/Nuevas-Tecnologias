@@ -36,13 +36,20 @@
 			<hr/>
 			
 			<div class="btn-vote">
-     				<a class="up " href="javascript:void(0);"></a>
+				<g:if test="${activity.getUserLike(currentUser) == 1}">
+				    <a class="up active" href="javascript:void(0);"></a>
+				</g:if>
+				<g:else>
+				     <a class="up" href="javascript:void(0);"></a>
+				</g:else>
 
-     				<a class="up active" href="javascript:void(0);"></a>
-     				
-     				<a class="down " href="javascript:void(0);"></a>
-
-     				<a class="down active" href="javascript:void(0);"></a>
+				<g:if test="${activity.getUserLike(currentUser) == -1}">
+     				<a class="second-btn down active" href="javascript:void(0);"></a></a>
+				</g:if>
+				<g:else>
+     				<a class="second-btn down" href="javascript:void(0);"></a>
+				</g:else>
+     		
 			</div>
 			
 		</div>

@@ -34,7 +34,10 @@ class BootStrap {
 
         def act2= new Activity(name:"Juan Gabriel en el Teatro Opera!", description:"Descripcion de Juan Gabriel en el Teatro Opera", startDate: new Date(), artists:[art2], establishment: est2)
         act2.save()
-
+		
+		def actLike1 = new ActivityLike(likeState: ActivityLike.LIKE_VALUE)
+		fq.addToLikes(actLike1);
+		act1.addToLikes(actLike1);
     }
     def destroy = {
     }

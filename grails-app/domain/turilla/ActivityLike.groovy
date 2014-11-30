@@ -1,8 +1,11 @@
 package turilla
 
 class ActivityLike {
-	int likeValue;
-	int dislikeValue;
+	
+	private static int LIKE_VALUE = 1;
+	private static int DISLIKE_VALUE = -1;
+	
+	int likeState;
 	
 	static belongsTo = [ user: User, activity: Activity ]
 	

@@ -18,4 +18,13 @@ class Activity {
     	startDate nullable: true
     	endDate nullable: true
     }
+	
+	def getUserLike(String userName) {
+		for ( like in likes ) {
+			if (like.getUser().getUsername().equals(userName))
+				return like.getLikeState();
+		}
+		
+		return 0;
+	}
 }
