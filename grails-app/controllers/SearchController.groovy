@@ -12,17 +12,24 @@ class SearchController {
         [activities: activities]
     }
 	def search() {
-		Date iniDate = null
+		Date iniDate = new Date()
 		Date finDate = null
+		
 		if(params.iniYear && params.iniMonth && params.iniDay) {
-			Calendar c = Calendar.getInstance();
-			c.set(Integer.parseInt(params.iniYear),Integer.parseInt( params.iniMonth), Integer.parseInt(params.iniDay), 0, 0)
-			iniDate=c.getTime()
+			Calendar c = new GregorianCalendar()
+			
+			if(params.iniHour && params.iniMinutes){
+				c.set(Integer.parseInt(params.iniYear),Integer.parseInt(params.iniMonth), Integer.parseInt(params.iniDay), Integer.parseInt(params.iniHour), Integer.parseInt(params.iniMinutes))
+			} else {
+				c.set(Integer.parseInt(params.iniYear),Integer.parseInt(params.iniMonth), Integer.parseInt(params.iniDay), 0, 0)
+			}
+			iniDate = c.getTime()
 		}
+		
 		if(params.finYear && params.finMonth && params.finDay ) {
-			Calendar c = Calendar.getInstance();
-			c.set(Integer.parseInt(params.finYear),Integer.parseInt( params.finMonth), Integer.parseInt(params.finDay), 0, 0)
-			finDate=c.getTime()			
+			Calendar c = new GregorianCalendar()
+			c.set(Integer.parseInt(params.finYear),Integer.parseInt(params.finMonth), Integer.parseInt(params.finDay), 0, 0)
+			finDate = c.getTime()
 		}
 		
 		def activities = Activity.createCriteria().listDistinct {
@@ -41,10 +48,10 @@ class SearchController {
 			establishment{
 				ilike("name","%${params.establishment}%")
 			}
-			if(iniDate!=null){
+			if(iniDate != null){
 				ge("startDate", iniDate)
 			}
-			if(finDate!=null){
+			if(finDate != null){
 				lt("endDate", finDate)
 			}
 			

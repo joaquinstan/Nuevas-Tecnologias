@@ -28,8 +28,11 @@ class BootStrap {
         def art2 = new Artist(name: "Juan",lastName: "Gabriel")
         art2.save()
 
-
-        def act1 = new Activity(name:"John Williams en el Teatro Colon!", description:"Descripcion de john wiliams en el teatro color", startDate: new Date(), artists: [art1], establishment: est1)
+		Calendar cal = Calendar.getInstance();
+		cal.set(2015,12,1, 0, 0)
+		def fechaDeFinAct1 = cal.getTime()
+		
+        def act1 = new Activity(name:"John Williams en el Teatro Colon!", description:"Descripcion de john wiliams en el teatro color", startDate: new Date(),endDate: fechaDeFinAct1, artists: [art1], establishment: est1)
         act1.save()
 
         def act2= new Activity(name:"Juan Gabriel en el Teatro Opera!", description:"Descripcion de Juan Gabriel en el Teatro Opera", startDate: new Date(), artists:[art2], establishment: est2)
