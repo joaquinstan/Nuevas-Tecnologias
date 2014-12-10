@@ -4,7 +4,6 @@ class Artist extends IArtist{
 
 	String alias
     String name
-    String lastName
 	int rating
 
 	static hasMany = [ activities: Activity ]

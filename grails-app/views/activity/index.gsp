@@ -7,7 +7,6 @@
 <body class="flexContainer">
 
     <div class=".col-md-4">
-
     </div>
     <div class="activitiesContainer list-group flexContainer center .col-md-4">
 		<div class="list-group-item">
@@ -21,24 +20,18 @@
 			</div>
 			
 			<hr/>
-			
-			<div class=activityDescription>
-				${activity.description}
-			</div>
-
+				<div class=activityDescription>
+					${activity.description}
+				</div>
 			<hr/>
-
-			<div class="artistName">
-			    ${activity.artists?.name}
-				${activity.artists?.lastName}
-			</div>
-			
+				<div class="artistName">
+				    ${activity.artists?.name}
+				</div>
 			<hr/>
 			
 			<div class="btn-vote">
 				<g:render template="btn-vote" />     		
 			</div>
-			
 		</div>
     </div>
 

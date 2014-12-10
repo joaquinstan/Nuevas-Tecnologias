@@ -39,6 +39,15 @@ class SearchController {
 			artists{
 				ilike("name", "%${params.artist}%")
 			}
+			artists{
+				ilike("name", "%${params.group}%")
+			}
+			/*
+			 * artists{
+				ilike("name", "%${params.artist}%")
+				like("class",ArtistGroup.class) //http://stackoverflow.com/questions/19771530/criteria-that-filters-by-subclass-of-filed-declared-by-super-class-in-domain-cla
+				}
+			 */
 			/*ArtistGroup.createCriteria().listDistinct {
 				ilike("name", "%${params.group}%")
 				projections {
