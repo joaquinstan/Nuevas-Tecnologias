@@ -42,6 +42,9 @@
                             <a href="#"><g:link controller="artists">Load new artists</g:link></a>
                         </li>
                         <li>
+                            <a href="#"><g:link controller="establishments">Load new establishment</g:link></a>
+                        </li>
+                        <li>
                             <a href="#"></a>
                         </li>
                         <li>
