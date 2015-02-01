@@ -39,6 +39,9 @@
                             <a href="#"><g:link controller="search">Search Activities</g:link></a>
                         </li>
                         <li>
+                            <a href="#"><g:link controller="artists">Load new artists</g:link></a>
+                        </li>
+                        <li>
                             <a href="#"></a>
                         </li>
                         <li>
