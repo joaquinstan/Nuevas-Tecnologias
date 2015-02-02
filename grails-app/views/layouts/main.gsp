@@ -39,10 +39,13 @@
                             <a href="#"><g:link controller="search">Search Activities</g:link></a>
                         </li>
                         <li>
-                            <a href="#"><g:link controller="artists">Load new artists</g:link></a>
+                            <a href="#"><g:link controller="activities">Load new Activities</g:link></a>
                         </li>
                         <li>
-                            <a href="#"><g:link controller="establishments">Load new establishment</g:link></a>
+                            <a href="#"><g:link controller="artists">Load new Artists</g:link></a>
+                        </li>
+                        <li>
+                            <a href="#"><g:link controller="establishments">Load new Establishment</g:link></a>
                         </li>
                         <li>
                             <a href="#"></a>
