@@ -23,7 +23,7 @@
 			<input name="address" class="form-control" id="exampleInputEmail2" placeholder="Av. Madero 420" value="${ establishment != null ? establishment.address : ""}">
 		</div>
 		<input name="id" type="hidden" value="${ establishment != null ? establishment.id : ""}">
-		<button type="submit" class="btn btn-default" >${message(code: 'create')}</button>
+		<button type="submit" class="btn btn-default" >${ establishment != null ? message(code: 'modify') : message(code: 'create')}</button>
 				
 	</g:form>
 	

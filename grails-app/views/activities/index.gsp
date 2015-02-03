@@ -1,3 +1,4 @@
+<%@page import="javax.activity.ActivityCompletedException"%>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -16,27 +17,52 @@
 		
 		<div class="form-group">
 			<label for="exampleInputName2">${message(code: 'name')}</label>
-			<input name="name" class="form-control" id="exampleInputName2" placeholder="John Williams en el Teatro Colon!">
+			<input name="name" class="form-control" id="exampleInputName2" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.name : ""}">
 		</div>
 		
 		<div class="form-group">
 			<label for="exampleInputEmail2">${message(code: 'description')}</label>
-			<input name="description" class="form-control" id="exampleInputEmail2" placeholder="John Williams en el Teatro Colon!">
+			<input name="description" class="form-control" id="exampleInputEmail2" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.description : ""}">
 		</div>
 		
 		<div class="form-group">
 			<label for="exampleInputEmail2">${message(code: 'establishment')}</label>
-			<select name="establishment" class="form-control">
-				<g:each var="est" in="${establishments}">
-					<option value="${est.id}">${est.name}</option>
-				</g:each>
-			</select>
+			<g:select name="establishment" class="form-control" value="${ activity != null ? activity.establishment.id : null }" from="${establishments}" optionKey="id" optionValue="name"/>
 		</div>
 		
-		<button type="submit" class="btn btn-default" >${message(code: 'create')}</button>
-				
+		<input name="id" type="hidden" value="${ activity != null ? activity.id : ""}">
+		<button type="submit" class="btn btn-default" >${ activity != null ? message(code: 'modify') : message(code: 'create')}</button>
 		
 	</g:form>
+	
+	<br></br>
+	
+	<g:if test="${ownActivities.size() > 0}">
+		<div class="list-group-item">
+			<table class="table table-striped">
+				<tr>
+					<th>${message(code: 'name')}</th>
+					<th>${message(code: 'description')}</th>
+					<th>${message(code: 'establishment')}</th>
+					<th></th>
+				</tr>
+				
+				<g:each in="${ownActivities}" var="activity">
+					<tr>
+						<td>${activity.name}</td>
+						<td>${activity.description}</td>
+						<td>${activity.establishment.name}</td>
+						<td> 
+							<g:link action="modifyActivity" id="${activity.id}"> <img src="${resource(dir:'images',file:'edit.png')}"> </img> </g:link>
+							<g:link action="deleteActivity" id="${activity.id}"> <img src="${resource(dir:'images',file:'delete.png')}"> </img> </g:link> 
+						</td>
+					</tr>
+				</g:each>
+				
+			</table>
+		</div>
+	</g:if>
+	
 	</div>
 
 </body>
