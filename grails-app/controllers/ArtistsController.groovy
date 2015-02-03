@@ -41,7 +41,7 @@ class ArtistsController {
 		}
 		artist.save(flush: true)
 		
-		map = getBaseMap()	// To add new artist
+		map = getBaseMap()	// To add the new artist
 		
 		String messageKey = params.id.equals("") ? "artistCreated" : "artistModified";
 		map['msg'] = message(code: messageKey, args:[])
@@ -62,6 +62,7 @@ class ArtistsController {
 		artist.delete(flush: true)
 		
 		def map = getBaseMap()
+		map['msg'] = message(code:"artistDeleted", args:[])
 		return render(view:"index", model : map)
 	}
 }

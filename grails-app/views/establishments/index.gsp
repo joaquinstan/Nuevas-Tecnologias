@@ -16,16 +16,43 @@
 		
 		<div class="form-group">
 			<label for="exampleInputName2">${message(code: 'name')}</label>
-			<input name="name" class="form-control" id="exampleInputName2" placeholder="Luna Park">
+			<input name="name" class="form-control" id="exampleInputName2" placeholder="Luna Park" value="${ establishment != null ? establishment.name : ""}">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputEmail2">${message(code: 'address')}</label>
-			<input name="address" class="form-control" id="exampleInputEmail2" placeholder="Av. Madero 420">
+			<input name="address" class="form-control" id="exampleInputEmail2" placeholder="Av. Madero 420" value="${ establishment != null ? establishment.address : ""}">
 		</div>
+		<input name="id" type="hidden" value="${ establishment != null ? establishment.id : ""}">
 		<button type="submit" class="btn btn-default" >${message(code: 'create')}</button>
 				
-		
 	</g:form>
+	
+	<br></br>
+	
+	<g:if test="${ownEstablishments.size() > 0}">
+		<div class="list-group-item">
+			<table class="table table-striped">
+				<tr>
+					<th>${message(code: 'name')}</th>
+					<th>${message(code: 'address')}</th>
+					<th></th>
+				</tr>
+				
+				<g:each in="${ownEstablishments}" var="establishment">
+					<tr>
+						<td>${establishment.name}</td>
+						<td>${establishment.address}</td>
+						<td> 
+							<g:link action="modifyEstablishment" id="${establishment.id}"> <img src="${resource(dir:'images',file:'edit.png')}"> </img> </g:link>
+							<g:link action="deleteEstablishment" id="${establishment.id}"> <img src="${resource(dir:'images',file:'delete.png')}"> </img> </g:link> 
+						</td>
+					</tr>
+				</g:each>
+				
+			</table>
+		</div>
+	</g:if>
+	
 	</div>
 
 </body>
