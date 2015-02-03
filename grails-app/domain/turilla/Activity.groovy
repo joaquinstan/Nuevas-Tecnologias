@@ -7,7 +7,8 @@ class Activity {
 	String description
 	Date startDate
 	Date endDate
-
+	User creatorUser
+	
     static hasMany = [ artists: IArtist, comments: Comment, likes: ActivityLike ]
 
     static belongsTo = IArtist
@@ -17,6 +18,7 @@ class Activity {
 		description nullable: true
     	startDate nullable: true
     	endDate nullable: true
+		creatorUser nullable: true
     }
 	
 	def getUserLike(String userName) {
