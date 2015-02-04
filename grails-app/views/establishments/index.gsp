@@ -1,8 +1,9 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="layout" content="main" />
+  <meta name="layout" content="main" />  
   <title>Home</title>
+  <asset:javascript src="establishment.js"/>
 </head>
 <body>
 	<div class="container">
@@ -16,19 +17,26 @@
 		
 		<div class="form-group">
 			<label for="exampleInputName2">${message(code: 'name')}</label>
-			<input name="name" class="form-control" id="exampleInputName2" placeholder="Luna Park" value="${ establishment != null ? establishment.name : ""}">
+			<input name="name" class="form-control name" id="exampleInputName2" placeholder="Luna Park" value="${ establishment != null ? establishment.name : ""}">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputEmail2">${message(code: 'address')}</label>
-			<input name="address" class="form-control" id="exampleInputEmail2" placeholder="Av. Madero 420" value="${ establishment != null ? establishment.address : ""}">
+			<input name="address" class="form-control address" id="exampleInputEmail2" placeholder="Av. Madero 420" value="${ establishment != null ? establishment.address : ""}">
 		</div>
+
 		<input name="id" type="hidden" value="${ establishment != null ? establishment.id : ""}">
+		<input name="latitude" class="latitude" type="hidden" value="${ establishment != null ? establishment.id : ""}">
+		<input name="longitude" class="longitude" type="hidden" value="${ establishment != null ? establishment.id : ""}">
+
 		<button type="submit" class="btn btn-default" >${ establishment != null ? message(code: 'modify') : message(code: 'create')}</button>
 				
 	</g:form>
 	
 	<br></br>
-	
+	    <input id="pac-input" class="controls" type="text"
+        placeholder="Ingrese una direccion">
+    <div id="map-canvas"></div>
+
 	<g:if test="${ownEstablishments.size() > 0}">
 		<div class="list-group-item">
 			<table class="table table-striped">

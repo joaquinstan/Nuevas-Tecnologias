@@ -33,7 +33,7 @@ class EstablishmentsController {
 		Establishment establishment
 		if (params.id.equals("")) {
 			User currentUser = User.findByUsername(SecurityUtils.subject.principal)
-			establishment = new Establishment( name: params.name, address: params.address, creatorUser: currentUser)
+			establishment = new Establishment( name: params.name, address: params.address, latitude:params.latitude, longitude:params.longitude,creatorUser: currentUser)
 		} else {
 			establishment = Establishment.get(params.id)
 			establishment.setName(params.name)

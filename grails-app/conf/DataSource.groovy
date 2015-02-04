@@ -28,8 +28,8 @@ environments {
             logSql = true
          
             // Credentials
-            username = "root"
-            password = ""
+            username = "turilla"
+            password = "password"
         }
     }
     test {

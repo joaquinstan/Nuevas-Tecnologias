@@ -9,6 +9,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Turilla"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&sensor=true"></script>
+        <g:layoutHead/>
   		<asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -19,9 +22,10 @@
         <![endif]-->
         <%@ page import="org.apache.shiro.SecurityUtils" %>
         <% user = SecurityUtils.subject.principal %>
-		<g:layoutHead/>
+
 	</head>
 	<body>
+        <geolocation:locateMe/> 
         <div id="wrapper">
             <g:if test="${user}">
                 <div id="sidebar-wrapper">
