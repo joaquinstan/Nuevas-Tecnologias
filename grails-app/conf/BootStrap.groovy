@@ -31,7 +31,7 @@ class BootStrap {
         def art2 = new Artist(name: "Juan Gabriel")
         art2.save()
 		
-		def grupo_los_charchaleros = new ArtistGroup(name: "los charchaleros", artists:[art1,art2])
+		def grupo_los_charchaleros = new ArtistGroup(name: "los chalchaleros", artists:[art1,art2])
 		grupo_los_charchaleros.save()
 		
 		Calendar cal = Calendar.getInstance();

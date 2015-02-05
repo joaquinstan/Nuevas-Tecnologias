@@ -8,7 +8,6 @@
 //= require jquery
 //= require gmaps
 //= require bootstrap
-//= require_tree .
 //= require_self
 
 if (typeof jQuery !== 'undefined') {

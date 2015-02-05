@@ -1,15 +1,7 @@
-.activitiesContainer{
-    margin: 1em;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    margin-bottom: 30px;
-}
-
 
 .name, .startDate, .artistName, .activityDescription, .showActivityButton{
     -webkit-flex-grow: 1;
     flex-grow: 1; /* default 0 */
-    padding: 1em;
     width: 50%;
 }
 

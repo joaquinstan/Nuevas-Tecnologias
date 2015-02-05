@@ -33,6 +33,47 @@ body{
 	display: flex;
 }
 
+.activitiesContainer{
+    margin: 1em;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.activityImage{
+
+float: right;
+height: 13em;
+width: 35em;
+}
+
+
+.infoContainer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+}
+
+.flexGrow1{
+  -webkit-flex-grow: 1;
+  flex-grow:1; 
+  padding: 2em; 
+}
+.imageContainer {
+  padding: 4em;
+  -webkit-flex-grow: 2;
+  flex-grow:2;
+}
+.activityContainer {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+   flex-direction: column;
+   width: 100%;
+}
+
 .center {
 	-webkit-flex-direction: column;
    flex-direction: column;
@@ -42,6 +83,17 @@ body{
    justify-content: center;
 }
 
+.mapContainer {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  height: 20em;
+  width: 100%;
+}
+
+#activityMap {
+  height: 100%;
+  width: 100%;
+}
 html, body, #map-canvas {
   height: 25em;
   margin: 0px;

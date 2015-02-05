@@ -84,7 +84,7 @@
                     </nav>
                 </header>
 
-                <div class="layoutBody center flexContainer">
+                <div class="flexContainer">
                     <g:layoutBody/>
                 </div>
             </div>

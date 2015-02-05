@@ -8,6 +8,9 @@ class Activity {
 	Date startDate
 	Date endDate
 	User creatorUser
+	byte[] image
+	String imageType
+	
 	
     static hasMany = [ artists: IArtist, comments: Comment, likes: ActivityLike ]
 
@@ -18,6 +21,8 @@ class Activity {
 		description nullable: true
     	startDate nullable: true
     	endDate nullable: true
+    	imageType nullable: true
+    	image nullable: true, maxSize: 1024 * 1024 * 10	
 		creatorUser nullable: true
     }
 	

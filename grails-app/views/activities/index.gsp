@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="container">
-	<g:form class="form-inline" action="addNewActivity">
+	<g:uploadForm class="form-inline" action="addNewActivity">
 	
 		<g:if test="${msg != null}">
 		<p class="bg-success" style="font-size: 18pt;padding: 20px;">${msg}</p>
@@ -29,11 +29,22 @@
 			<label for="exampleInputEmail2">${message(code: 'establishment')}</label>
 			<g:select name="establishment" class="form-control" value="${ activity != null ? activity.establishment.id : null }" from="${establishments}" optionKey="id" optionValue="name"/>
 		</div>
+
+		<div class="form-group">
+			<label for="exampleInputEmail2">${message(code: 'artists')}</label>
+			<g:select name="artists" class="form-control" value="" from="${artists}" value="${ activity != null ? activity.artists.id : null }" optionKey="id" optionValue="name"/>
+		</div>
 		
+
+		<div class="form-group">
+			Upload Image: <input type="file" name="photo"/>
+		</div>
+
+
 		<input name="id" type="hidden" value="${ activity != null ? activity.id : ""}">
 		<button type="submit" class="btn btn-default" >${ activity != null ? message(code: 'modify') : message(code: 'create')}</button>
 		
-	</g:form>
+	</g:uploadForm>
 	
 	<br></br>
 	

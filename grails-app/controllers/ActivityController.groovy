@@ -10,6 +10,19 @@ class ActivityController {
 		
 		[activity: activity, currentUser: currentUser ]		
 	}
+
+	def image = {
+		def activity = Activity.get(params.id)
+	  	if (!activity || !activity.image || !activity.imageType) {
+		  response.sendError(404)
+		  return
+		}
+		response.contentType = activity.imageType
+		response.contentLength = activity.image.size()
+		OutputStream out = response.outputStream
+		out.write(activity.image)
+		out.close()
+	}
 	
 	def updateLike = {
 		String currentUsername = SecurityUtils.subject.principal
