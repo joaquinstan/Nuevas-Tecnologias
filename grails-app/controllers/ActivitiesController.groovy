@@ -32,12 +32,13 @@ class ActivitiesController {
 		Activity activity
 		if (params.id.equals("")) {
 			User currentUser = User.findByUsername(SecurityUtils.subject.principal)
-			 activity = new Activity( artists: params.artists, name: params.name, description: params.description, establishment : Establishment.get( params.establishment ), creatorUser: currentUser, image: file?.bytes, imageType: file?.contentType);
+			 activity = new Activity( artists: params.artists, name: params.name, description: params.description, tags: params.tags, establishment : Establishment.get( params.establishment ), creatorUser: currentUser, image: file?.bytes, imageType: file?.contentType);
 		} else {
 			activity = Activity.get(params.id)
 			activity.setArtists(params.artists)
 			activity.setName(params.name)
 			activity.setDescription(params.description)
+			activity.setTags(params.tags)
 			activity.setEstablishment( Establishment.get(params.establishment) )
 			activity.setImage(file?.bytes)
 			activity.setImageType(file?.contentType)

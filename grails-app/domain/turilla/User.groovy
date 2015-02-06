@@ -5,7 +5,7 @@ class User {
     String lastName
     String username
     String passwordHash
-
+	String interestTags
 
     def favArtist(IArtist artist){
 
@@ -23,6 +23,7 @@ class User {
     static hasMany = [ roles: Role, permissions: String, favorites: IArtist, likes: ActivityLike ]
 
     static constraints = {
+		interestTags nullable: true
         username(nullable: false, blank: false, unique: true)
     }
 }

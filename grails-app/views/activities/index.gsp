@@ -16,22 +16,27 @@
 		<br></br>
 		
 		<div class="form-group">
-			<label for="exampleInputName2">${message(code: 'name')}</label>
-			<input name="name" class="form-control" id="exampleInputName2" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.name : ""}">
+			<label>${message(code: 'name')}</label>
+			<input name="name" class="form-control" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.name : ""}">
 		</div>
 		
 		<div class="form-group">
-			<label for="exampleInputEmail2">${message(code: 'description')}</label>
-			<input name="description" class="form-control" id="exampleInputEmail2" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.description : ""}">
+			<label>${message(code: 'description')}</label>
+			<input name="description" class="form-control" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.description : ""}">
 		</div>
 		
 		<div class="form-group">
-			<label for="exampleInputEmail2">${message(code: 'establishment')}</label>
+			<label>${message(code: 'tags')}</label>
+			<input name="tags" class="form-control" placeholder="${message(code: 'exampleTag')}" value="${ activity != null ? activity.tags : ""}">
+		</div>
+		
+		<div class="form-group">
+			<label>${message(code: 'establishment')}</label>
 			<g:select name="establishment" class="form-control" value="${ activity != null ? activity.establishment.id : null }" from="${establishments}" optionKey="id" optionValue="name"/>
 		</div>
 
 		<div class="form-group">
-			<label for="exampleInputEmail2">${message(code: 'artists')}</label>
+			<label>${message(code: 'artists')}</label>
 			<g:select name="artists" class="form-control" value="" from="${artists}" value="${ activity != null ? activity.artists.id : null }" optionKey="id" optionValue="name"/>
 		</div>
 		

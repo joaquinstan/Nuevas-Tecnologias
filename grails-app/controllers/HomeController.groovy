@@ -6,7 +6,6 @@ class HomeController{
     def index() { 
 		Activity[] activities = Activity.getAll()
 		[ activities: activities ]
-		
     }   
 	
 	def search = {

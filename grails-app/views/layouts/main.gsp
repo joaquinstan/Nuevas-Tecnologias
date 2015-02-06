@@ -37,10 +37,13 @@
                             <g:link controller="home">Home</g:link>
                         </li>
                         <li>
-                            <a href="#">My Profile</a>
+                            <a href="#"><g:link controller="profile">My profile</g:link></a>
                         </li>
                         <li>
                             <a href="#"><g:link controller="search">Search Activities</g:link></a>
+                        </li>
+                        <li>
+                            <a href="#"><g:link controller="suggestedActivities">Suggested activities</g:link></a>
                         </li>
                         <li>
                             <a href="#"><g:link controller="activities">Load new Activities</g:link></a>

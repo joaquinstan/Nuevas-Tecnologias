@@ -5,12 +5,12 @@ class Activity {
 	Establishment establishment
 	String name
 	String description
+	String tags
 	Date startDate
 	Date endDate
 	User creatorUser
 	byte[] image
 	String imageType
-	
 	
     static hasMany = [ artists: IArtist, comments: Comment, likes: ActivityLike ]
 
@@ -19,10 +19,11 @@ class Activity {
     static constraints = {
     	establishment nullable: true
 		description nullable: true
+		tags nullable: true
     	startDate nullable: true
     	endDate nullable: true
     	imageType nullable: true
-    	image nullable: true, maxSize: 1024 * 1024 * 10	
+    	image nullable: true, maxSize: 1024 * 1024 * 10
 		creatorUser nullable: true
     }
 	
