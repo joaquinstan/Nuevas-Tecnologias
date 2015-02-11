@@ -19,10 +19,10 @@ class BootStrap {
         jc.addToPermissions("*:*")
         jc.save()
 
-        def est1 = new Establishment(name:"Teatro Colon", address:"Cerca del Obelisco")
+        def est1 = new Establishment(name:"Teatro Colon", address:"Cerca del Obelisco", latitude: -34.60104, longitude: -58.38307)
         est1.save()
 
-        def est2 = new Establishment(name:"Teatro Opera", address:"Masomeno cerca del obelisco")
+        def est2 = new Establishment(name:"Teatro Opera", address:"Masomeno cerca del obelisco", latitude: -34.60359, longitude: -58.37896)
         est2.save()
 
         def art1 = new Artist(name: "John Williams")

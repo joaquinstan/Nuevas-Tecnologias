@@ -11,6 +11,8 @@ class Activity {
 	User creatorUser
 	byte[] image
 	String imageType
+	Integer maxCapacity;
+	Integer currentAttendants = 0;
 	
     static hasMany = [ artists: IArtist, comments: Comment, likes: ActivityLike ]
 
@@ -25,6 +27,7 @@ class Activity {
     	imageType nullable: true
     	image nullable: true, maxSize: 1024 * 1024 * 10
 		creatorUser nullable: true
+		maxCapacity nullable: true
     }
 	
 	def getUserLike(String userName) {
@@ -43,5 +46,39 @@ class Activity {
 			return 0
 		
 		return like.getLikeState()
+	}
+	
+	def addAttendant() {
+		currentAttendants++
+	}
+	
+	def addAttendant(Integer quantity) {
+		currentAttendants = currentAttendants + quantity
+	}
+	
+	def reachMaxCapacity() {
+		if (maxCapacity != null)
+			return (currentAttendants >= maxCapacity)
+		
+		// If no capacity was setted then it can never reach maxCapacity
+		return false
+	}
+	
+	def hasAnyTag(List<String> tagsToFind) {
+		if (tags == null || tagsToFind == null)
+			return false;
+			
+		for (String tag in tagsToFind)
+			if (tags.find(tag) != null) 
+				return true
+		
+		return false
+	}
+	
+	def hasTag(String tag) {
+		if (tags == null || tag == null)
+			return false;
+			
+		return (tags.find(tag) != null)
 	}
 }

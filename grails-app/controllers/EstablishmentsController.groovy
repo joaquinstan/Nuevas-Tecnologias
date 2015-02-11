@@ -30,6 +30,11 @@ class EstablishmentsController {
 			return render(view:"index", model: map )
 		}
 		
+		if (params.latitude == null || params.longitude == null) {
+			map['msg'] = message(code:"mapAddressObligatory", args:[])
+			return render(view:"index", model: map )
+		}
+		
 		Establishment establishment
 		if (params.id.equals("")) {
 			User currentUser = User.findByUsername(SecurityUtils.subject.principal)

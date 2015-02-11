@@ -25,8 +25,8 @@
 		</div>
 
 		<input name="id" type="hidden" value="${ establishment != null ? establishment.id : ""}">
-		<input name="latitude" class="latitude" type="hidden" value="${ establishment != null ? establishment.id : ""}">
-		<input name="longitude" class="longitude" type="hidden" value="${ establishment != null ? establishment.id : ""}">
+		<input name="latitude" class="latitude" type="hidden" value="${ establishment != null ? establishment.latitude : ""}">
+		<input name="longitude" class="longitude" type="hidden" value="${ establishment != null ? establishment.longitude : ""}">
 
 		<button type="submit" class="btn btn-default" >${ establishment != null ? message(code: 'modify') : message(code: 'create')}</button>
 				
