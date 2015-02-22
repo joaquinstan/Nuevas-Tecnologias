@@ -5,7 +5,6 @@ class Activity {
 	Establishment establishment
 	String name
 	String description
-	String tags
 	Date startDate
 	Date endDate
 	User creatorUser
@@ -14,7 +13,7 @@ class Activity {
 	Integer maxCapacity;
 	Integer currentAttendants = 0;
 	
-    static hasMany = [ artists: IArtist, comments: Comment, likes: ActivityLike ]
+    static hasMany = [ tags: Tag, artists: IArtist, comments: Comment, likes: ActivityLike ]
 
     static belongsTo = IArtist
 
@@ -64,7 +63,7 @@ class Activity {
 		return false
 	}
 	
-	def hasAnyTag(List<String> tagsToFind) {
+	/*def hasAnyTag(List<String> tagsToFind) {
 		if (tags == null || tagsToFind == null)
 			return false;
 			
@@ -80,5 +79,5 @@ class Activity {
 			return false;
 			
 		return (tags.find(tag) != null)
-	}
+	}*/
 }

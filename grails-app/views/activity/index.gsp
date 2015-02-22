@@ -65,6 +65,11 @@
     	});
   		
 	</g:javascript>
+<script>
+    $(document).ready(function() {
+        $("select").select2();
+    });
+</script>
 
 </body>
 </html>

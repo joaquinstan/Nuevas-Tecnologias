@@ -7,51 +7,56 @@
 </head>
 <body>
 	<div class="container">
-	<g:uploadForm class="form-inline" action="addNewActivity">
+
+        <g:uploadForm class="form-horizontal" role="form" action="addNewActivity">
+
+            <g:if test="${msg != null}">
+            <p class="bg-success" style="font-size: 18pt;padding: 20px;">${msg}</p>
+            </g:if>
+
+            <br/>
+
+            <div class="form-group">
+                <label class="control-label" for="name">${message(code: 'name')}</label>
+                <div>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.name : ""}" required="required">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>${message(code: 'description')}</label>
+                <input name="description" class="form-control" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.description : ""}">
+            </div>
+
+
+            <div class="form-group">
+                <label>${message(code: 'tags')}</label>
+                <g:select id="tags" multiple="true" name="tags" class="form-control" placeholder="${message(code: 'exampleTag')}" from="${tags}" optionKey="valor" optionValue="valor" />
+            </div>
+
+            <div class="form-group">
+                <label>${message(code: 'establishment')}</label>
+                <g:select name="establishment" class="form-control" value="${ activity != null ? activity.establishment.id : null }" from="${establishments}" optionKey="id" optionValue="name"/>
+            </div>
+
+            <div class="form-group">
+                <label>${message(code: 'artists')}</label>
+                <g:select name="artists" class="form-control"  from="${artists}" value="${ activity != null ? activity.artists.id : null }" optionKey="id" optionValue="name"/>
+            </div>
+
+
+            <div class="form-group">
+                Upload Image: <input type="file" name="photo"/>
+            </div>
+
+
+            <input name="id" type="hidden" value="${ activity != null ? activity.id : ""}">
+            <button type="submit" class="btn btn-default" >${ activity != null ? message(code: 'modify') : message(code: 'create')}</button>
+
+        </g:uploadForm>
+
 	
-		<g:if test="${msg != null}">
-		<p class="bg-success" style="font-size: 18pt;padding: 20px;">${msg}</p>
-		</g:if>
-		
-		<br></br>
-		
-		<div class="form-group">
-			<label>${message(code: 'name')}</label>
-			<input name="name" class="form-control" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.name : ""}">
-		</div>
-		
-		<div class="form-group">
-			<label>${message(code: 'description')}</label>
-			<input name="description" class="form-control" placeholder="John Williams en el Teatro Colon!" value="${ activity != null ? activity.description : ""}">
-		</div>
-		
-		<div class="form-group">
-			<label>${message(code: 'tags')}</label>
-			<input name="tags" class="form-control" placeholder="${message(code: 'exampleTag')}" value="${ activity != null ? activity.tags : ""}">
-		</div>
-		
-		<div class="form-group">
-			<label>${message(code: 'establishment')}</label>
-			<g:select name="establishment" class="form-control" value="${ activity != null ? activity.establishment.id : null }" from="${establishments}" optionKey="id" optionValue="name"/>
-		</div>
-
-		<div class="form-group">
-			<label>${message(code: 'artists')}</label>
-			<g:select name="artists" class="form-control" value="" from="${artists}" value="${ activity != null ? activity.artists.id : null }" optionKey="id" optionValue="name"/>
-		</div>
-		
-
-		<div class="form-group">
-			Upload Image: <input type="file" name="photo"/>
-		</div>
-
-
-		<input name="id" type="hidden" value="${ activity != null ? activity.id : ""}">
-		<button type="submit" class="btn btn-default" >${ activity != null ? message(code: 'modify') : message(code: 'create')}</button>
-		
-	</g:uploadForm>
-	
-	<br></br>
+	<br/>
 	
 	<g:if test="${ownActivities.size() > 0}">
 		<div class="list-group-item">
@@ -80,6 +85,14 @@
 	</g:if>
 	
 	</div>
-
+<script>
+    $(document).ready(function() {
+        $("select").select2();
+        $("#tags").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        })
+    });
+</script>
 </body>
 </html>

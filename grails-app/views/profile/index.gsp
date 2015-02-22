@@ -6,23 +6,35 @@
 </head>
 <body class="activityContainer">
     <div class="container">
-    
+
     	<g:if test="${msg != null}">
 			<p class="bg-success" style="font-size: 18pt;padding: 20px;">${msg}</p>
 		</g:if>
-    
-	    <g:uploadForm class="form-inline" action="updateUserData">
-	    
-	   		<div class="flexGrow1">
-	  		 	<label for="exampleInputName2">${message(code: 'interestTags')}</label>
-				<input name="interestTags" style="display: initial;" class="form-control name" 
-						value="${ currentUser != null ? currentUser.interestTags : ""}" placeholder="${message(code: 'interestPlaceHolder')}">
-			</div>
-			
+        <g:if test="${tags == null}">
+            <p class="bg-success" style="font-size: 18pt;padding: 20px;">Usted no tiene tags</p>
+        </g:if>
+        <g:each in="${tags}" var="tag" >
+            <p>${tag.valor}</p>
+        </g:each>
+	    <g:uploadForm class="form-inline" role="form" action="updateUserData">
+            <div class="form-group">
+                <label>${message(code: 'interestTags')}</label>
+                <g:select id="tags" multiple="true" name="interestTags" class="form-control" placeholder="${message(code: 'interestPlaceHolder')}" from="${tags}" optionKey="valor" optionValue="valor" />
+            </div>
+
 			<button type="submit" class="btn btn-default" >${ message(code: 'save')}</button>
 			
 		</g:uploadForm>
 				
-	</div>	
+	</div>
+    <script>
+        $(document).ready(function() {
+            $("select").select2();
+            $("#tags").select2({
+                tags: true,
+                tokenSeparators: [',', ' ']
+            })
+        });
+    </script>
 </body>
 </html>

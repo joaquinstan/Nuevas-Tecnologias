@@ -20,6 +20,15 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <!-- para que funcione select2 -->
+        <script type="text/javascript" src="https://select2.github.io/vendor/js/jquery.min.js"></script>
+        <style type="text/css"></style>
+        <script type="text/javascript" src="https://select2.github.io/dist/js/select2.full.js"></script>
+        <script type="text/javascript" src="https://select2.github.io/vendor/js/bootstrap.min.js"></script>
+        <link href="https://select2.github.io/dist/css/select2.min.css" type="text/css" rel="stylesheet">
+        <link href="https://select2.github.io/vendor/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+
         <%@ page import="org.apache.shiro.SecurityUtils" %>
         <% user = SecurityUtils.subject.principal %>
 
