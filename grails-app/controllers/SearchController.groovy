@@ -8,65 +8,42 @@ import turilla.*
 class SearchController {
 
     def index() {
-        Activity[] activities = Activity.getAll()
-        [activities: activities]
+        [activities: Activity.getAll(), allArtists: IArtist.getAll(), establishments: Establishment.getAll()]
     }
+
 	def search() {
-		Date iniDate = new Date()
-		Date finDate = null
-		
-		if(params.iniYear && params.iniMonth && params.iniDay) {
-			Calendar c = new GregorianCalendar()
-			
-			if(params.iniHour && params.iniMinutes){
-				c.set(Integer.parseInt(params.iniYear),Integer.parseInt(params.iniMonth), Integer.parseInt(params.iniDay), Integer.parseInt(params.iniHour), Integer.parseInt(params.iniMinutes))
-			} else {
-				c.set(Integer.parseInt(params.iniYear),Integer.parseInt(params.iniMonth), Integer.parseInt(params.iniDay), 0, 0)
-			}
-			iniDate = c.getTime()
-		}
-		
-		if(params.finYear && params.finMonth && params.finDay ) {
-			Calendar c = new GregorianCalendar()
-			c.set(Integer.parseInt(params.finYear),Integer.parseInt(params.finMonth), Integer.parseInt(params.finDay), 0, 0)
-			finDate = c.getTime()
-		}
-		
+
 		def activities = Activity.createCriteria().listDistinct {
-			
+
 			ilike("name", "%${params.actName}%")
-			
+
+			if(params.artists != ""){
+                println("entre a buscar artista " + params.artists)
+                artists{
+                    idEq(params.artists.toLong())
+                }
+            }
+/*
 			artists{
-				ilike("name", "%${params.artist}%")
-			}
-			artists{
+                println("grupo " + params.group)
 				ilike("name", "%${params.group}%")
 			}
-			/*
-			 * artists{
-				ilike("name", "%${params.artist}%")
-				like("class",ArtistGroup.class) //http://stackoverflow.com/questions/19771530/criteria-that-filters-by-subclass-of-filed-declared-by-super-class-in-domain-cla
-				}
-			 */
-			/*ArtistGroup.createCriteria().listDistinct {
-				ilike("name", "%${params.group}%")
-				projections {
-					properties("activities")
-				}
-			}*/
-			establishment{
-				ilike("name","%${params.establishment}%")
+*/          if(params.establishment != ""){
+                establishment{
+                    println("establecimiento "+params.establishment)
+                    ilike("name","%${params.establishment}%")
+                }
+            }
+
+			if(params.fromDate != null){
+				ge("startDate", params.fromDate)
 			}
-			if(iniDate != null){
-				ge("startDate", iniDate)
-			}
-			if(finDate != null){
-				lt("endDate", finDate)
-			}
-			
+
+            if( params.untilDateCheckBox!=null && params.untilDate != null){
+                lt("endDate", params.untilDate)
+            }
 		}
-		def map = [ activities : activities ]
+        def map = [activities : activities, allArtists: IArtist.getAll(), establishments: Establishment.getAll()]
 		render(view:"index", model:map)
-		
 	}
 }

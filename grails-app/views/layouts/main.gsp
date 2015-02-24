@@ -22,7 +22,6 @@
         <![endif]-->
 
         <!-- para que funcione select2 -->
-        <script type="text/javascript" src="https://select2.github.io/vendor/js/jquery.min.js"></script>
         <style type="text/css"></style>
         <script type="text/javascript" src="https://select2.github.io/dist/js/select2.full.js"></script>
         <script type="text/javascript" src="https://select2.github.io/vendor/js/bootstrap.min.js"></script>
@@ -40,7 +39,7 @@
                 <div id="sidebar-wrapper">
                     <ul class="sidebar-nav">
                         <li class="sidebar-brand">
-                            <g:displayName></g:displayName>
+                            <g:displayName/>
                         </li>
                         <li>
                             <g:link controller="home">Home</g:link>

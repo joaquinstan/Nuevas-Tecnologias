@@ -36,19 +36,28 @@
 
             <div class="form-group">
                 <label>${message(code: 'establishment')}</label>
-                <g:select name="establishment" class="form-control" value="${ activity != null ? activity.establishment.id : null }" from="${establishments}" optionKey="id" optionValue="name"/>
+                <g:select id="establishment" name="establishment" class="form-control" value="${ activity != null ? activity.establishment.id : null }" from="${establishments}" optionKey="id" optionValue="name"/>
             </div>
 
             <div class="form-group">
                 <label>${message(code: 'artists')}</label>
-                <g:select name="artists" class="form-control"  from="${artists}" value="${ activity != null ? activity.artists.id : null }" optionKey="id" optionValue="name"/>
+                <g:select id="artists" name="artists" class="form-control"  from="${artists}" value="${ activity != null ? activity.artists.id : null }" optionKey="id" optionValue="name"/>
             </div>
 
+            <div id="fromDateContainer" class="form-group">
+                <label>From Date</label>
+                <g:datePicker id="fromDate" name="fromDate" value="${new Date()}" relativeYears="[0..5]" precision="minute" class="form-control"/>
+            </div>
+
+            <div id="untilDateContainer" class="form-group">
+                <label>Until Date</label>
+                <g:datePicker  id="untilDate" name="untilDate" relativeYears="[0..5]" precision="minute" class="form-control"/>
+
+            </div>
 
             <div class="form-group">
                 Upload Image: <input type="file" name="photo"/>
             </div>
-
 
             <input name="id" type="hidden" value="${ activity != null ? activity.id : ""}">
             <button type="submit" class="btn btn-default" >${ activity != null ? message(code: 'modify') : message(code: 'create')}</button>
@@ -87,11 +96,14 @@
 	</div>
 <script>
     $(document).ready(function() {
-        $("select").select2();
+        $("#establishment, #artists").select2();
+        $("#fromDateContainer, #untilDateContainer").find("select").select2({
+            'width': 'maxWidth'
+        });
         $("#tags").select2({
             tags: true,
             tokenSeparators: [',', ' ']
-        })
+        });
     });
 </script>
 </body>

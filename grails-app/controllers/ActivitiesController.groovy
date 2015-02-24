@@ -31,7 +31,7 @@ class ActivitiesController {
 		CommonsMultipartFile file = request.getFile("photo")
 
 		Activity activity
-
+        //TODO: migrar este segmento a clase Tag o a algun lugar donde corresponda
         def tags = []
         if(params.tags!=""){
             for (it in params.tags) {
@@ -53,7 +53,9 @@ class ActivitiesController {
         }
 		if (params.id.equals("")) {
 			User currentUser = User.findByUsername(SecurityUtils.subject.principal)
-			 activity = new Activity( artists: params.artists, name: params.name, description: params.description, tags: tags, establishment : Establishment.get( params.establishment ), creatorUser: currentUser, image: file?.bytes, imageType: file?.contentType);
+			 activity = new Activity( artists: params.artists, name: params.name, description: params.description,
+                     tags: tags, establishment : Establishment.get( params.establishment ), creatorUser: currentUser,
+                     image: file?.bytes, imageType: file?.contentType,startDate:params.fromDate, endDate: params.untilDate);
 		} else {
 			activity = Activity.get(params.id)
 			activity.setArtists(params.artists)
@@ -63,6 +65,8 @@ class ActivitiesController {
 			activity.setEstablishment( Establishment.get(params.establishment) )
 			activity.setImage(file?.bytes)
 			activity.setImageType(file?.contentType)
+            activity.setEndDate(params.untilDate)
+            activity.setStartDate(params.fromDate)
 		}
 		activity.save(flush: true)
 		
