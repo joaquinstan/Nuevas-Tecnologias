@@ -5,10 +5,7 @@
   <title>Home</title>
 </head>
 <body class="flexContainer">
-
-    <div class=".col-md-4">
-
-    </div>
+    <div class=".col-md-4"></div>
     <div class="activitiesContainer list-group center .col-md-4">
 		
 		<div class="input-group search-input">

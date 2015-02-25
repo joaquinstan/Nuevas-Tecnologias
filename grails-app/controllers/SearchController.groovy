@@ -18,19 +18,13 @@ class SearchController {
 			ilike("name", "%${params.actName}%")
 
 			if(params.artists != ""){
-                println("entre a buscar artista " + params.artists)
                 artists{
                     idEq(params.artists.toLong())
                 }
             }
-/*
-			artists{
-                println("grupo " + params.group)
-				ilike("name", "%${params.group}%")
-			}
-*/          if(params.establishment != ""){
+
+            if(params.establishment != ""){
                 establishment{
-                    println("establecimiento "+params.establishment)
                     ilike("name","%${params.establishment}%")
                 }
             }

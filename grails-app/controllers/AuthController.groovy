@@ -1,8 +1,10 @@
 import org.apache.shiro.SecurityUtils
 import org.apache.shiro.authc.AuthenticationException
 import org.apache.shiro.authc.UsernamePasswordToken
+import org.apache.shiro.crypto.hash.Sha256Hash
 import org.apache.shiro.web.util.SavedRequest
 import org.apache.shiro.web.util.WebUtils
+import turilla.User
 
 class AuthController {
     def shiroSecurityManager
@@ -75,5 +77,22 @@ class AuthController {
 
     def unauthorized = {
         render "You do not have permission to access this page."
+    }
+
+    def showCreateUserForm = {
+        render(view:"newUser")
+    }
+    def createNewUser = {
+        println(User.findByUsername(params.newUserName))
+        if(User.findByUsername(params.newUserName) == null){
+            def js = new User(name:params.newName,lastName: params.newLastName,username: params.newUserName,
+                    passwordHash: new Sha256Hash(params.newPassword).toHex())
+            js.addToPermissions("*:*")
+            js.save(flush: true)
+            render(view:"login",model: [username: params.newUserName])
+        }else{
+            render(view: "newUser", model: [msg: "El user name ingresado ya existe", ])
+        }
+
     }
 }

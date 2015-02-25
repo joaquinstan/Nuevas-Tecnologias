@@ -19,8 +19,9 @@
         	<label for="rememberMe">Remember Me</label>
         	<g:checkBox name="rememberMe" value="${rememberMe}" />
       	</div>
-      	<input class="list-group-item" type="submit" value="Sign in" />
+      	<input class="btn btn-default list-group-item" type="submit" value="Sign in" />
     </g:form>
+      <g:link action="showCreateUserForm" class="btn btn-default pull-right"><g:message code="createUser"/></g:link>
   </div>
 </body>
 </html>
