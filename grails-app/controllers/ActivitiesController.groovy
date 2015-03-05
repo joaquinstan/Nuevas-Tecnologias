@@ -31,26 +31,11 @@ class ActivitiesController {
 		CommonsMultipartFile file = request.getFile("photo")
 
 		Activity activity
-        //TODO: migrar este segmento a clase Tag o a algun lugar donde corresponda
         def tags = []
         if(params.tags!=""){
-            for (it in params.tags) {
-                println(it)
-                if(it !=""){
-                    if ( Tag.findByValor(it) ) {
-                        println("el tag ya estaba creado")
-                        tags.add(Tag.findByValor(it.toString()))
-                        println(tags)
-                    } else {
-                        Tag nuevoTag = new Tag(valor: it.toString())
-                        println("se ha creado un nuevo tag")
-                        println(nuevoTag.valor)
-                        nuevoTag.save()
-                        tags.add(nuevoTag)
-                    }
-                }
-            }
+            tags = Tag.generateTags(params.list("tags"))
         }
+
 		if (params.id.equals("")) {
 			User currentUser = User.findByUsername(SecurityUtils.subject.principal)
 			 activity = new Activity( artists: params.artists, name: params.name, description: params.description,

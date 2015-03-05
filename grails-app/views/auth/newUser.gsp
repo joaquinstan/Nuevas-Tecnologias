@@ -33,7 +33,7 @@
                     <label for="pwd">Password:</label>
                     <input type="password" name="newPassword" class="form-control" id="pwd" required>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">${message(code: 'save')}</button>
             </form>
         </g:form>
     </div>
