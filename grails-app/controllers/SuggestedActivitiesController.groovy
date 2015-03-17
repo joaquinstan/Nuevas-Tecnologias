@@ -7,13 +7,18 @@ class SuggestedActivitiesController {
 
     def index() {
 		User currentUser = User.findByUsername(SecurityUtils.subject.principal)
+        if(currentUser.interestTags.isEmpty()) {
+            return [ activities: [] ]
+        }
+
         def activities = Activity.createCriteria().listDistinct {
+            println(currentUser.interestTags)
             tags{
-                or{
-                    it in currentUser.interestTags
-                }
+                'in' ("id", currentUser.interestTags.getAt("id"))
             }
         }
+
+        println(activities)
 		return [ activities: activities ]
 	}
 

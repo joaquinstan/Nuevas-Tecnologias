@@ -12,7 +12,14 @@ class Tag {
     static constraints = {
         valor nullable: false
     }
-    static generateTags(list){
+    static generateTags(valuesOfTags) {
+            valuesOfTags.findAll{it != ""}.collect{ valueOfTag ->
+                Tag.findByValor(valueOfTag)?:new Tag(valor: valueOfTag).save(failOnError: true)
+            }
+        }
+
+        /*TODO: eliminar esto antes de la entrega*/
+        /*
         def tags = []
         for (stringTag in list) {
             if(stringTag !=""){
@@ -26,7 +33,8 @@ class Tag {
             }
         }
         return tags
+         */
 
-    }
+
 }
 

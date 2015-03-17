@@ -30,14 +30,18 @@ class Activity {
     }
 	
 	def getUserLike(String userName) {
+		likes.find { like -> like.user.username == userName }
+	}
+	/*
+	def getUserLike(String userName) {
 		for ( like in likes ) {
 			if (like.getUser().getUsername().equals(userName))
 				return like;
 		}
-		
+
 		return null;
 	}
-	
+	 */
 	def getUserLikeState(String username) {
 		ActivityLike like = getUserLike(username)
 		
@@ -62,22 +66,4 @@ class Activity {
 		// If no capacity was setted then it can never reach maxCapacity
 		return false
 	}
-	
-	/*def hasAnyTag(List<String> tagsToFind) {
-		if (tags == null || tagsToFind == null)
-			return false;
-			
-		for (String tag in tagsToFind)
-			if (tags.find(tag) != null) 
-				return true
-		
-		return false
-	}
-	
-	def hasTag(String tag) {
-		if (tags == null || tag == null)
-			return false;
-			
-		return (tags.find(tag) != null)
-	}*/
 }
